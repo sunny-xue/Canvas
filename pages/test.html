@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+            function drawDiagonal(id){
+                var canvas=document.getElementById(id);
+                var context=canvas.getContext("2d");
+                context.beginPath();
+                context.moveTo(0,0);
+                context.lineTo(100,100);
+                context.lineTo(200,50);
+                console.log(context.isPointInPath(60,60));
+                context.stroke();
+            }
+
+            window.onload=function(){
+                drawDiagonal("diagonal1");
+            };
+    </script>
+</head>
+<body>
+    <canvas id="diagonal1" style="border:1px solid;" width="400px" height="400px"></canvas>
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto;">
+    当前浏览器不支持Canvas，请更换浏览器后再试
+</canvas>
+
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext('2d');
+        canvas.width = 800;
+        canvas.height = 600;
+        // ctx.lineWidth=2;
+        // ctx.beginPath();
+        // ctx.moveTo(1,1);
+        // ctx.lineTo(100,200);
+        // ctx.lineCap='square';
+        // ctx.strokeStyle='blue';
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.moveTo(10,1);
+        // ctx.lineTo(200,200);
+        // ctx.lineTo(400,100);
+        // ctx.fillStyle='blue';
+        // ctx.closePath();
+        // ctx.strokeStyle='red';
+        // ctx.fill();
+        // ctx.stroke();
+
+        // ctx.fillRect(300,300, 200,200);
+        // ctx.strokeRect(300,300, 200,200);
+
+        // ctx.fillRect(350,350, 200,200);
+        // ctx.strokeRect(350,350, 200,200);
+
+        ctx.scale(-1, 1);
+        ctx.font = "48px serif";
+        ctx.fillText("Hello world!", -320, 120);
+        //ctx.setTransform(1, 0, 0, 1, 0, 0);
+   };
+</script>
+<label></label>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Script load</title>
+	<script src="../js/headScript.js"></script>
+	<script src="../js/deferScript.js" defer></script>
+	<script type="text/javascript">
+
+var ua='MSIE 6';
+var text='this is short !';
+var pattern=/(..)or(.)/g;
+	if (/MSIE ([^;]+)/.test(ua)) {
+        var ua_version = parseFloat(RegExp["$1"], 10);
+        console.log(ua_version);
+    }
+
+    if(pattern.test(text)){
+    	console.log(RegExp['$1']);
+    }
+        </script>
+    }
+</head>
+<body>
+	<script src="../js/asynScript1.js" defer></script>
+	<script src="../js/asynScript2.js" defer></script>
+</body>
+</html>
