@@ -6,13 +6,30 @@
     <script type="text/javascript">
             function drawDiagonal(id){
                 var canvas=document.getElementById(id);
-                var context=canvas.getContext("2d");
-                context.beginPath();
-                context.moveTo(0,0);
-                context.lineTo(100,100);
-                context.lineTo(200,50);
-                console.log(context.isPointInPath(60,60));
-                context.stroke();
+                var ctx=canvas.getContext("2d");
+               
+               //  ctx.save();
+               //  //设置状态
+               //   ctx.fillStyle='red';
+               //   //ctx.translate(100,100);
+               //   //ctx.scale(2,2);
+               //   //ctx.rotate(30 * Math.PI / 180);
+               //  //ctx.transform(2,0.2,0.2,1.5,50,50);
+               // //忽略 之前的Transform
+               //  //ctx.setTransform(1,0,0,1,0,0);
+                
+               //  ctx.fillRect(50,50,50,50);
+               //  ctx.restore();
+               //  ctx.fillRect(100,50,50,50);
+               
+               //线性渐变
+               // var linearCrad = ctx.createLinearGradient(0,0,400,400);
+               // 径向渐变
+               var linearCrad = ctx.createRadialGradient(200,200,10,200,200,50);
+               linearCrad.addColorStop(0.0, '#fff');
+               linearCrad.addColorStop(1.0, '#000');
+               ctx.fillStyle = linearCrad;
+               ctx.fillRect(0,0,400,400);
             }
 
             window.onload=function(){

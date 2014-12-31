@@ -2,18 +2,23 @@
 var starArr = [];
 window.onload = function() {
 	var canvas = document.getElementById("canvas");
-	canvas.width = 800;
+	canvas.width = 1400;
 	canvas.height = 600;
 
 	var ctx = canvas.getContext('2d');
+	//var skyStyle = ctx.createLinearGradient(0, 0,canvas.width, canvas.height);
+	var skyStyle = ctx.createRadialGradient(canvas.width / 2, canvas.height, 0 , canvas.width / 2, canvas.height, canvas.height);
+	skyStyle.addColorStop(0.0, '#035');
+	skyStyle.addColorStop(1.0, 'black');
+	ctx.fillStyle = skyStyle;
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 
 	for (var i = 0; i < 200; i++) {
-		var R = Math.random() * 10 + 10;
+		var R = Math.random() * 10;
 		var r = R / 2;
 		var x = Math.random() * canvas.width;
-		var y = Math.random() * canvas.height;
+		var y = Math.random() * canvas.height*0.65;
 		var rot = Math.random() * 360;
 
 		//星星不能越界
