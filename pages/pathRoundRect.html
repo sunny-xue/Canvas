@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2048棋盘</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas = document.getElementById('canvas');
+			var width = canvas.width;
+			var height = canvas.height;
+			var radius = 10;
+			var ctx = canvas.getContext('2d');
+			drawRoundRect(ctx,150,150,500,500,10,'#bbada0');
+			for (var i = 0; i < 4; i++) {
+				for (var j = 0; j < 4; j++) {
+						drawRoundRect(ctx, 170 + i*120, 170 + j*120, 100, 100, 6,'#ccc0b3');
+					}
+			}
+			
+		};
+
+		function drawRoundRect (ctx,x,y,w,h,r,fillColor) {
+			ctx.setTransform(1,0,0,1,x,y);
+			ctx.fillStyle=fillColor || 'black';
+			pathRoundRect(ctx,w,h,r);
+			ctx.fill();
+		}
+
+		function pathRoundRect (ctx,width,height,radius) {
+			ctx.beginPath();
+			ctx.arc(width-radius, height-radius, radius, 0, Math.PI / 2);
+			ctx.lineTo(radius, height);
+			ctx.arc(radius, height-radius, radius, Math.PI / 2, Math.PI);
+			ctx.lineTo(0,radius);
+			ctx.arc(radius, radius, radius, Math.PI, Math.PI * 1.5);
+			ctx.lineTo(width-radius,0);
+			ctx.arc(width-radius, radius, radius, Math.PI * 1.5, Math.PI * 2);
+			ctx.closePath();
+		}
+	</script>
+</head>
+<body>
+	<canvas id='canvas' style="margin:50px auto;display:block;" width='800px' height='800px'></canvas>
+
+</body>
+</html>
