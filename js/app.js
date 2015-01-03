@@ -2,8 +2,8 @@
 var starArr = [];
 window.onload = function() {
 	var canvas = document.getElementById("canvas");
-	canvas.width = 1400;
-	canvas.height = 600;
+	canvas.width = 1200;
+	canvas.height = 800;
 
 	var ctx = canvas.getContext('2d');
 	//var skyStyle = ctx.createLinearGradient(0, 0,canvas.width, canvas.height);
@@ -22,13 +22,13 @@ window.onload = function() {
 
 		//星星不能越界
 		if ((x - 2 * R) > 0 && (y - 2 * R) > 0 && (x + 2 * R) < canvas.width && (y + 2 * R) < canvas.height) {
-			drawStar(ctx,x, y,R,rot);
+			drawStar(ctx, x, y, R, rot);
 		}
 		//drawStar(ctx, x, y, R, rot);
 	}
 
 	drowMoon(ctx, 2, 1000, 100, 50, 50);
-
+	drawLand(ctx);
 };
 
 function drowMoon(ctx, d, x, y, R, rot, fillStyle) {
@@ -139,4 +139,21 @@ function checkPointInPath(ctx) {
 		}
 	}
 	return false;
+}
+
+function drawLand(ctx) {
+	ctx.save();
+	ctx.beginPath();
+	ctx.moveTo(0, 600);
+	ctx.bezierCurveTo(540, 400, 660, 800, 1200, 600);
+	ctx.lineTo(1200, 800);
+	ctx.lineTo(0, 800);
+	ctx.closePath();
+
+	var landStyle = ctx.createLinearGradient(0, 800, 0, 0);
+	landStyle.addColorStop(0.0, '#030');
+	landStyle.addColorStop(1.0, '#580');
+	ctx.fillStyle = landStyle;
+	ctx.fill();
+	ctx.restore();
 }
