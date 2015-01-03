@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Arc</title>
+	<script type="text/javascript">
+	window.onload=function oninit (argument) {
+			var canvas = document.getElementById('canvas');
+			var ctx = canvas.getContext('2d');
+			ctx.arc(400,300,100,0.5*Math.PI, 1.5*Math.PI,true);
+			ctx.moveTo(400,200);
+			ctx.arcTo(600,300,400,400,100*Math.sqrt(100*100 + 200*200) / (600-400));
+			ctx.stroke();
+	};
+	</script>
+</head>
+<body>
+	<canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto;" width="800px" height="600px">
+    当前浏览器不支持Canvas，请更换浏览器后再试
+</canvas>
+</body>
+</html>
