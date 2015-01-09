@@ -31,13 +31,47 @@
                ctx.fillStyle = linearCrad;
                ctx.fillRect(0,0,400,400);
             }
+            // function fun1(){
+            //     alert('fun1');
+            // }
 
+            var fun2;
             window.onload=function(){
-                drawDiagonal("diagonal1");
+                //fun1();//执行最后一个函数体
+                //判断是否存在函数
+                // alert(typeof(eval('fun3')));
+//                 if(typeof(fun2) == "function"){
+//                     alert('yes');
+//                 }else
+//                 {
+//                     alert('no');
+                   
+//                 }
+// if(typeof(fun2) == "function"){
+//                     alert('yes');
+//                 }
+//                 if(document.fun2 == null){
+//                     alert('no');
+//                 }else
+//                 {
+//                     alert('yes');
+//                 }
+//                 drawDiagonal("diagonal1");
+
+                document.insertScript = function(){
+                     fun2 =function(){
+                        alert('fun2');
+                    }
+                }
+
+                fun2;
+alert(document.getElementById('myIFrame').contentDocument);
+                document.getElementById('myIFrame').contentDocument.getElementsByTagName('input')[0].focus();
             };
     </script>
 </head>
 <body>
+<iframe src="http://127.0.0.1:8888/pages/MyHtml.html" id="myIFrame"></iframe>
     <canvas id="diagonal1" style="border:1px solid;" width="400px" height="400px"></canvas>
 </body>
 </html>

@@ -9,14 +9,27 @@ window.onload=function onload () {
 	var canvas = document.getElementById('canvas');
 	var ctx = canvas.getContext('2d');
 	ctx.fillStyle = '#058';
-	
+	ctx.save();
+	//textAlign和textBaseline都是针对坐标进行对齐
 	ctx.font = 'bold 40px sans-serif';
+	ctx.textAlign='left';
+	ctx.textBaseline='top';
 	ctx.fillText('欢迎你访问我的页面...',40,100);
 	ctx.font = 'italic bold 40px sans-serif';
+	ctx.textAlign='center';
+	ctx.textBaseline='middle';
 	ctx.fillText('欢迎你访问我的页面...',40,200);
+	ctx.textAlign='right';
+	ctx.textBaseline='bottom';
 	ctx.font = 'oblique bold 2em sans-serif';
 	ctx.fillText('欢迎你访问我的页面...',40,300);
 	
+	ctx.restore();
+	//增加阴影
+	ctx.shadowColor = '#058';
+	ctx.shadowOffsetx = 20;
+	ctx.shadowOffsety = 20;
+	ctx.shadowBlur = 5;
 	ctx.font = 'small-caps bold 40px sans-serif';
 	ctx.fillText('Welcome to my home page...',40,400);
 };
